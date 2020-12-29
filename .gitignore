@@ -42,3 +42,4 @@ nbdist/
 !*/build/*.java
 !*/build/*.html
 !*/build/*.xml
+/doc/Redis-x64-3.2.100
