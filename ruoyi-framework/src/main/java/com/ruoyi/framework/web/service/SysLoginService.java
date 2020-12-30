@@ -21,7 +21,7 @@ import com.ruoyi.framework.manager.factory.AsyncFactory;
 /**
  * 登录校验方法
  * 
- * @author ruoyi
+ * @author zhen
  */
 @Component
 public class SysLoginService
