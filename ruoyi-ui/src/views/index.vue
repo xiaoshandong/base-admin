@@ -4,37 +4,27 @@
       <el-col :sm="24" :lg="24">
         <blockquote class="text-warning" style="font-size: 14px">
           <br />
-          <el-link
-            href="https://www.aliyun.com/minisite/goods?userCode=brki8iof"
-            type="primary"
-            target="_blank"></el-link>
+          <!-- &nbsp;  -->
+          <!-- <el-link href="http://txy.ruoyi.vip" type="primary" target="_blank"></el-link><br/> -->
+          <!-- <h4 class="text-danger"></h4> -->
+          <x-chart :id="id" :option="option"></x-chart>
           <br />
-          <br />
-          <el-link
-            href="https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=198c8df2ed259157187173bc7f4f32fd&from=console"
-            type="primary"
-            target="_blank"></el-link>
-          <br />
-          <el-link href="http://aly.ruoyi.vip" type="primary" target="_blank"></el-link>
-          &nbsp;&nbsp;&nbsp; 
-          <el-link href="http://txy.ruoyi.vip" type="primary" target="_blank"></el-link><br/>
-          <h4 class="text-danger"></h4>
         </blockquote>
-
         <hr />
       </el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :sm="24" :lg="12" style="padding-left: 20px">
+        <!-- <el-carousel :interval="4000" type="card" height="200px">
+          <el-carousel-item v-for="item in 6" :key="item">
+            <h3 class="medium">{{ item }}</h3>
+          </el-carousel-item>
+        </el-carousel> -->
         <h2></h2>
         <p></p>
-        <p>
-          <b></b> <span>v{{ version }}</span>
-        </p>
-        <p>
-          <el-tag type="danger">&yen;</el-tag>
-        </p>
-        <p>
+        <p><b></b> <span>v{{ version }}</span></p>
+        <!-- <p><el-tag type="danger">&yen;</el-tag></p> -->
+        <!-- <p>
           <el-button
             type="primary"
             size="mini"
@@ -46,9 +36,8 @@
             icon="el-icon-s-home"
             plain
             @click="goTarget('http://ruoyi.vip')"></el-button>
-        </p>
+        </p> -->
       </el-col>
-
       <el-col :sm="24" :lg="12" style="padding-left: 50px">
         <el-row>
           <el-col :span="12">
@@ -61,19 +50,11 @@
             <ul>
               <li></li>
               <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
             </ul>
           </el-col>
           <el-col :span="6">
             <h4></h4>
             <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
               <li></li>
               <li></li>
             </ul>
@@ -142,14 +123,26 @@
 </template>
 
 <script>
+
+// 导入chart组件
+import XChart from './components/chart.vue'
+// 导入chart组件模拟数据
+import options from '../chart-options/options'
+
 export default {
   name: "index",
   data() {
+    let option = options.bar
     return {
       // 版本号
-      version: "3.3.0",
+      version: "1.0.0",
+      id: 'test',
+      option: option
     };
   },
+  components: {
+    XChart
+ },
   methods: {
     goTarget(href) {
       window.open(href, "_blank");
@@ -157,8 +150,12 @@ export default {
   },
 };
 </script>
-
 <style scoped lang="scss">
+#test {
+ width: 50px;
+ height: 100px;
+ margin: 0px auto;
+}
 .home {
   blockquote {
     padding: 10px 20px;
@@ -175,12 +172,10 @@ export default {
   .col-item {
     margin-bottom: 20px;
   }
-
   ul {
     padding: 0;
     margin: 0;
   }
-
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   color: #676a6c;
@@ -220,5 +215,21 @@ export default {
     }
   }
 }
+
+  // .el-carousel__item h3 {
+  //   color: #475669;
+  //   font-size: 14px;
+  //   opacity: 0.75;
+  //   line-height: 200px;
+  //   margin: 0;
+  // }
+  
+  // .el-carousel__item:nth-child(2n) {
+  //   background-color: #99a9bf;
+  // }
+  
+  // .el-carousel__item:nth-child(2n+1) {
+  //   background-color: #d3dce6;
+  // }
 </style>
 
